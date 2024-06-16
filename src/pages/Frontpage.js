@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import SocialMediaLinks from './components/SocialMediaLinks';
 import SvgBackground from '../pages/components/Loaders/SvgBackground.jsx';
 import TypeWriterEffect from 'react-typewriter-effect';
 import { ServiceContext } from '../ServiceContext';
@@ -9,11 +8,11 @@ import './Frontpage.css';
 
 const Frontpage = () => {
   const { imageStyle, isDarkMode } = useContext(ServiceContext);
-  document.body.style = `background: ${isDarkMode ? '#1c2541' : '#f7d488'};`;
+  document.body.style = "background: #1c2541";
   return (
     <>
       <div
-        className={`profile-container ${isDarkMode ? 'dark' : 'light'}`}
+        className="profile-container dark"
         id="home_page"
       >
         <div className="profile-parent">
@@ -21,7 +20,7 @@ const Frontpage = () => {
             <div className="profile-details-name">
               <p className="primary-text">
                 Hello, I'M
-                <span className="highlighted-text">Ganesh Ghadge</span>
+                <span className="highlighted-text">Lucky Boss</span>
               </p>
             </div>
             <div className="profile-details-role">
@@ -59,11 +58,7 @@ const Frontpage = () => {
                   reliable.
                 </span>
               </span>
-              <div className="colz">
-                <SocialMediaLinks />
-              </div>
             </div>
-
             <div className="profile-options">
               <HashLink to="/contact-me">
                 <button className="btn primary-btn">Hire Me</button>
@@ -74,18 +69,11 @@ const Frontpage = () => {
             </div>
           </div>
           <div className="profile-picture">
-            {imageStyle?.globalImages?.profile_img ? (
-              <img
-                className="profile-picture-background polygoncls"
-                src={imageStyle?.globalImages?.profile_img}
-                alt="profile-img"
-              />
-            ) : (
-              <Skeleton
-                className="polygoncls"
-                props={{ width: '90%', height: '90%' }}
-              />
-            )}
+            <img
+              className="profile-picture-background polygoncls"
+              src="https://github.com/goldenhouse0601/luckyboss-portfolio-/assets/171920354/a783ccab-fb36-44f6-b2b5-162d176769b8"
+              alt="profile-img"
+            />
           </div>
         </div>
         <SvgBackground />

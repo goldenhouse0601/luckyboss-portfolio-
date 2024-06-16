@@ -4,12 +4,10 @@ import { BiLogInCircle } from 'react-icons/bi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from 'emailjs-com';
-import { ServiceContext } from '../ServiceContext';
 import './ContactPage.css';
 
 const ContactPage = (props) => {
-  const { uri, isDarkMode, imageStyle } = useContext(ServiceContext);
-  const url = `${uri}/${process.env.REACT_APP_CONTACT}`;
+  const url = "/";
   const [pvalue, setPvalue] = useState(0);
   const [userMsg, setUserMsg] = useState({
     name: '',
@@ -46,44 +44,6 @@ const ContactPage = (props) => {
     }
     return true;
   };
-  // const operator = async (e) => {
-  //   e.preventDefault();
-  //   const { name, email, message } = userMsg;
-  //   const requestOptions = {
-  //     name,
-  //     email,
-  //     message,
-  //   };
-  //   console.log(requestOptions);
-
-  //   if (handleValidation()) {
-  //     setPvalue(1);
-  //     const res = await fetch(url, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(requestOptions),
-  //     });
-
-  //     const data = await res.json();
-
-  //     if (data) {
-  //       setPvalue(0);
-  //       emailjs.send(
-  //         'service_mcjo9r8',
-  //         'template_bp5qxel',
-  //         form.current,
-  //         'vjE1B1bCwi4pnyP7J'
-  //       );
-
-  //       toast.success(data.message, toastOptions);
-  //       e.stopPropagation();
-  //     }
-  //     console.log(data);
-  //     toast.error(data.error, toastOptions);
-  //   }
-  // };
 
   const operator = async (e) => {
     e.preventDefault();
@@ -145,7 +105,7 @@ const ContactPage = (props) => {
 
   return (
     <section
-      className={`contact_page_section ${isDarkMode ? 'dark' : 'light'}`}
+      className="contact_page_section dark"
       id="contact_page"
     >
       <div className="contact_section">
@@ -219,7 +179,7 @@ const ContactPage = (props) => {
             </div>
           </div>
           <img
-            src={imageStyle?.globalImages?.contact_me_img}
+            src="https://github.com/goldenhouse0601/luckyboss-portfolio-/assets/171920354/5c9467c3-d15b-45ba-8a94-9a5762ad384b"
             className="form_container_right"
             alt="contact images"
           ></img>

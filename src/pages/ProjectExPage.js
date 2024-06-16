@@ -5,14 +5,58 @@ import { HashLink } from 'react-router-hash-link';
 import './ProjectExPage.css';
 
 const ProjectExPage = () => {
-  const { utilData, isDarkMode } = useContext(ServiceContext);
   const [showAllCards, setShowAllCards] = useState(false);
-  const visibleCards = utilData?.proj_data?.slice(0, 5);
+  const utilData = [
+    {
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },
+    {
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },{
+      project_name: "Dental-Clinic Web-Application",
+      project_image: "https://github.com/ganraj21/ganraj21/assets/89139437/9b6adc31-444e-46d9-a5c0-4e5b3d07c508",
+      proj_code_like: "https://github.com/ganraj21/Dental_Clinic",
+      proj_live_link: "https://omdentalclinic.vercel.app/"
+    },
+  ];
 
+  const visibleCards = utilData.slice(0, 5);
+  
   return (
     <div>
       <div
-        className={`work_page ${isDarkMode ? 'dark' : 'light'}`}
+        className="work_page dark"
         id="my-work"
       >
         <div className="proj_component">
@@ -30,10 +74,6 @@ const ProjectExPage = () => {
                 <img src={e.project_image} alt="project Images" />
                 <div className="proj_header">
                   <h3>{e.project_name}</h3>
-                  <h4>{e.proj_creation_date}</h4>
-                </div>
-                <div className="proj_descriptions">
-                  <p>{e.proj_description}</p>
                 </div>
                 <div className="proj_btns">
                   <a
@@ -57,7 +97,7 @@ const ProjectExPage = () => {
 
           {showAllCards && (
             <>
-              {utilData?.proj_data?.slice(6).map((e, index) => (
+              {utilData.slice(6).map((e, index) => (
                 <div
                   className="section"
                   key={index}
@@ -65,15 +105,11 @@ const ProjectExPage = () => {
                   data-aos-duration="2000"
                 >
                   <div
-                    className={`pcontainer ${isDarkMode ? 'dark' : 'light'}`}
+                    className="pcontainer dark"
                   >
                     <img src={e.project_image} alt="project Images" />
                     <div className="proj_header">
                       <h3>{e.project_name}</h3>
-                      <h4>{e.proj_creation_date}</h4>
-                    </div>
-                    <div className="proj_descriptions">
-                      <p>{e.proj_description}</p>
                     </div>
                     <div className="proj_btns">
                       <a href={e.proj_code_like}>

@@ -28,9 +28,9 @@ const App = () => {
             </>
           }
         />
-        <Route exact path="/tech/education" element={<EducationCert />} />
+        {/* <Route exact path="/tech/education" element={<EducationCert />} /> */}
         <Route exact path="/tech/skill" element={<NewSkillsPage />} />
-        <Route exact path="/contact-me" element={<ContactPage />} />
+        {/* <Route exact path="/contact-me" element={<ContactPage />} /> */}
         <Route exact path="/login" element={<Login />} />
         <Route element={<PrivateRoutes />}>
           <Route exact path="login/admin" element={<AdminUser />} />

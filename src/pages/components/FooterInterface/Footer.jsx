@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import BottomNav from './BottomNav';
 import './Footer.css';
-import { ServiceContext } from '../../../ServiceContext';
 const Footer = () => {
-  const { isDarkMode } = useContext(ServiceContext);
   return (
     <div>
-      <div className={`footer_section ${isDarkMode ? 'dark' : 'light'}`}>
+      <div className="footer_section dark">
         <BottomNav />
         <div className="line"></div>
-        <h2>Made with ❤️ by Ganesh</h2>
+        <h2>Made with 😎 by LuckyBoss</h2>
       </div>
     </div>
   );

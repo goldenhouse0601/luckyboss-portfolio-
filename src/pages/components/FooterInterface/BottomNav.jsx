@@ -1,16 +1,57 @@
-import React, { useContext } from 'react';
-import SocialMediaLinks from '../SocialMediaLinks';
+import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import Githubcomp from './Githubcomp';
-import { ServiceContext } from '../../../ServiceContext';
 import './BottomNav.css';
 
 const BottomNav = () => {
-  const { rootData, csStyleData, getStyleData, isDarkMode } =
-    useContext(ServiceContext);
+  const rootData = [
+    {
+      nav_link: "/#home_page",
+      navbar_name: "Home",
+      another_page: false,
+    },
+    {
+      nav_link: "/#about_myself",
+      navbar_name: "About Myself",
+      another_page: false,
+    },
+    {
+      nav_link: "/#my-work",
+      navbar_name: "Projects & Experience",
+      another_page: false,
+    },
+    {
+      nav_link: "/tech/skill",
+      navbar_name: "Skills & Abilities",
+      another_page: true,
+    },
+    // {
+    //   nav_link: "/tech/education",
+    //   navbar_name: "Education & Certifications",
+    //   another_page: true,
+    // },
+    // {
+    //   nav_link: "/contact-me",
+    //   navbar_name: "Contact Me",
+    //   another_page: true,
+    // }
+  ];
+  const personal_info_data= [
+    {
+      icon_class: "fa-solid fa-envelope",
+      ic_color: "rgb(0, 131, 143)",
+      data_value: "goldenhouse0601@gmail.com"
+    },
+    {
+      icon_class: "fa-sharp fa-solid fa-location-dot",
+      ic_color: "rgb(34, 119, 0)",
+      data_value: "Sonora, Mexico - 83449"
+    }
+  ];
+
   return (
     <>
-      <div className={`bottom_nav_container ${isDarkMode ? 'dark' : 'light'}`}>
+      <div className="bottom_nav_container dark">
         <div className="bottom_nav_section">
           <div className="bot_nav_left">
             <div className="bot_left_header">
@@ -18,7 +59,7 @@ const BottomNav = () => {
                 to="/login"
                 style={{ textDecoration: 'none', color: '#fff' }}
               >
-                <h3>Ganraj21 | Portfolio</h3>
+                <h3>LuckyBoss | Portfolio</h3>
               </HashLink>
             </div>
             <div className="bot_middle_info">
@@ -30,8 +71,8 @@ const BottomNav = () => {
             </div>
             <div>
               <Githubcomp
-                href="https://github.com/ganraj21"
-                shadow={`${isDarkMode ? '#482e87' : '#a998d4'} 0px 0px 13px`}
+                href="https://github.com/goldenhouse0601"
+                shadow="#482e87 0px 0px 13px"
               />
             </div>
           </div>
@@ -40,18 +81,12 @@ const BottomNav = () => {
               <h3>Quick Links</h3>
             </div>
             <div className="bot_nav">
-              {rootData?.my_navbar_data?.map((data, index) => {
+              {rootData.map((data, index) => {
                 return (
-                  <>
                     <HashLink
                       key={index}
                       to={data.nav_link}
                       onClick={() => {
-                        if (index === 3 || index === 4) {
-                          if (csStyleData.length === 0) {
-                            getStyleData(process.env.REACT_APP_ARP_CS);
-                          }
-                        }
 
                         if (data.another_page === true)
                           window.scrollTo({
@@ -61,14 +96,9 @@ const BottomNav = () => {
                           });
                       }}
                     >
-                      {index !== 6 ? (
-                        <i className="fa-solid fa-angles-right"></i>
-                      ) : (
-                        <></>
-                      )}
+                      <i className="fa-solid fa-angles-right"></i>
                       <p> {data.navbar_name}</p>
                     </HashLink>
-                  </>
                 );
               })}
             </div>
@@ -78,25 +108,20 @@ const BottomNav = () => {
               <h3>Contact Info</h3>
             </div>
             <div className="bot_contact_info">
-              {rootData?.personal_info_data?.map((data, index) => {
-                return (
-                  <div className="bot_cdiv" key={index}>
-                    {data.section_two.map((e, i) => {
-                      return (
-                        <div className="contact_me_here" key={i}>
-                          <i
-                            className={e.icon_class}
-                            style={{ color: e.ic_color }}
-                          ></i>
-                          <p>{e.data_value}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-              <SocialMediaLinks style={{ gap: '6px', display: 'flex' }} />
-            </div>
+              <div className="bot_cdiv">
+                {personal_info_data.map((e, i) => {
+                  return (
+                    <div className="contact_me_here" key={i}>
+                      <i
+                        className={e.icon_class}
+                        style={{ color: e.ic_color }}
+                      ></i>
+                      <p>{e.data_value}</p>
+                    </div>
+                  );
+                })}
+              </div>
+             </div>
           </div>
         </div>
       </div>

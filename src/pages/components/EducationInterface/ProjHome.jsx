@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Githubcomp from '../FooterInterface/Githubcomp';
-import { ServiceContext } from '../../../ServiceContext';
 import './ProjHome.css';
-import Skeleton from '../Loaders/Skeleton';
 
 const ProjHome = () => {
-  const { imageStyle, isDarkMode } = useContext(ServiceContext);
   return (
     <>
       <div className="proj_containar_section">
@@ -23,16 +20,12 @@ const ProjHome = () => {
           </p>
           <Githubcomp
             backgroundColor="#512da8"
-            shadow={`${isDarkMode ? '#482e87' : '#edededa8'} 0px 0px 9px`}
-            href="https://github.com/ganraj21/Portfolio-Web-Application"
+            shadow="#482e87 0px 0px 9px"
+            href="https://github.com/goldenhouse0601/luckyboss-portfolio"
           />
         </div>
         <div className="proj_right">
-          {imageStyle?.globalImages?.proj_img ? (
-            <img src={imageStyle?.globalImages?.proj_img} alt="Project Img" />
-          ) : (
-            <Skeleton props={{ width: '80%', height: '90%' }} />
-          )}
+            <img src="https://github.com/goldenhouse0601/luckyboss-portfolio-/assets/171920354/f012b514-d090-453b-b34d-267ea15cacfb" alt="Project Img" />
         </div>
       </div>
     </>
